@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  cursor: default;
+  background-color: #F0F0F0;
+  color: #1C1C1A;
+  height: 100vh; /* Use viewport height instead of 100% to occupy full screen height */
+  text-align: center;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #154151;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* optional drop shadow */
+}
+
+.logo-container img {
+  height: 40px;
+  width: auto;
+  fill: white;
+}
+
+#pianoRollContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 42px;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  color: #F0F0F0;
+  background-color: #944038;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+button {
+  /* ... existing button styles ... */
+  border-bottom: 3px solid #381815;  /* A darker shade for 3D effect */
+  position: relative;  /* Required for the top movement on hover */
+  transition: all 1.1s ease;  /* Transition for all properties */
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.piano-roll-card {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.description {
+  margin-top: 10px;
+}

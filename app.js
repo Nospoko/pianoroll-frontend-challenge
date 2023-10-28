@@ -1,78 +1,63 @@
 import PianoRoll from './pianoroll.js';
 
-class CSVToSVG {
+class PianoRollDisplay {
   constructor(csvURL) {
     this.csvURL = csvURL;
     this.data = null;
   }
 
-  async loadData() {
+  async loadPianoRollData() {
     try {
       const response = await fetch('https://pianoroll.ai/random_notes');
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       this.data = await response.json();
-      console.log(this.data);  // This should log an array of objects
     } catch (error) {
       console.error('Error loading data:', error);
     }
   }
 
-  createSVG(container, partData) {
-    const svgWrapper = document.createElement('div');
-    const description = document.createElement('p');
+  preparePianoRollCard(rollId) {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('piano-roll-card');
 
-    // Add description
-    const pitch = partData[0].pitch;
-    const velocity = partData[0].velocity;
-    description.textContent = `FIRST PITCH! ${pitch} ${velocity}`;
+    // Create and append other elements to the card container as needed
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.classList.add('description');
+    descriptionDiv.textContent = `This is a piano roll number ${rollId}`;
+    cardDiv.appendChild(descriptionDiv);
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width', '128');
-    svg.setAttribute('height', '32');
+    svg.setAttribute('width', '80%');
+    svg.setAttribute('height', '150');
 
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    // Append the SVG to the card container
+    cardDiv.appendChild(svg);
 
-    // Generate a random color
-    const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-
-    // Set rectangle properties to cover the entire SVG
-    rect.setAttribute('width', '128');
-    rect.setAttribute('height', '32');
-    rect.setAttribute('fill', randomColor);
-
-    // Append elements
-    svg.appendChild(rect);
-    svgWrapper.appendChild(description);
-    svgWrapper.appendChild(svg);
-    container.appendChild(svgWrapper);
+    return { cardDiv, svg }
   }
 
   async generateSVGs() {
-    if (!this.data) await this.loadData();
+    if (!this.data) await this.loadPianoRollData();
     if (!this.data) return;
     
-    const svgContainer = document.getElementById('svgContainer');
-    svgContainer.innerHTML = '';
-    for (let i = 0; i < 10; i++) {
-      const start = i * 50;
-      const end = start + 50;
+    const pianoRollContainer = document.getElementById('pianoRollContainer');
+    pianoRollContainer.innerHTML = '';
+    for (let it = 0; it < 20; it++) {
+      const start = it * 100;
+      const end = start + 100;
       const partData = this.data.slice(start, end);
 
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('width', '690');
-      svg.setAttribute('height', '420');
-      svgContainer.appendChild(svg);
+      const { cardDiv, svg } = this.preparePianoRollCard(it)
 
+      pianoRollContainer.appendChild(cardDiv);
       const roll = new PianoRoll(svg, partData);
-      // this.createSVG(svgContainer, partData);
-      console.log(roll.note_height);
     }
   }
 }
 
 document.getElementById('loadCSV').addEventListener('click', async () => {
-  const csvToSVG = new CSVToSVG();
+  const csvToSVG = new PianoRollDisplay();
   await csvToSVG.generateSVGs();
 });

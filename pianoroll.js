@@ -14,17 +14,15 @@ export default class PianoRoll {
     this.svgElement = svgElement;
     this.end = null;
 
-    const startColor = {
-      r: Math.floor(Math.random() * 256),
-      g: Math.floor(Math.random() * 256),
-      b: Math.floor(Math.random() * 256),
-    };
-    const endColor = {
-      r: Math.floor(Math.random() * 256),
-      g: Math.floor(Math.random() * 256),
-      b: Math.floor(Math.random() * 256),
-    };
-    this.colormap = generateGradientTable(startColor, endColor, 128);
+    // PianoRoll brand #5DB5D5
+    const backgroundStartColor = { r: 93, g: 181, b: 213 };
+    // #154151
+    const backgroundEndColor = { r: 21, g: 65, b: 81 };
+    this.backgroundColormap = generateGradientTable(backgroundStartColor, backgroundEndColor, 128);
+
+    const noteStartColor = { r: 132, g: 132, b: 123 };
+    const noteEndColor = { r: 148, g: 64, b: 56 };
+    this.noteColormap = generateGradientTable(noteStartColor, noteEndColor, 128);
 
     this.svgElement.setAttribute("viewBox", "0 0 1 1");
     this.svgElement.setAttribute("preserveAspectRatio", "none");
@@ -80,7 +78,7 @@ export default class PianoRoll {
       note_rectangle.setAttribute('height', `${this.note_height}`);
 
       // Colorcoding velocity
-      const color = this.colormap[note.velocity];
+      const color = this.noteColormap[note.velocity];
       note_rectangle.setAttribute('fill', color);
 
       note_rectangle.classList.add('note-rectangle')
@@ -102,7 +100,7 @@ export default class PianoRoll {
         const h = 1 / pitch_span;
         const w = 1;
 
-        rect.setAttribute('fill', this.colormap[12]);
+        rect.setAttribute('fill', this.backgroundColormap[12]);
         rect.setAttribute('fill-opacity', '0.666');
         rect.setAttribute('x', `${x}`);
         rect.setAttribute('y', `${y}`);
