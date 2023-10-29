@@ -1,4 +1,4 @@
-# PianoRoll Frontend Excercise
+# PianoRoll Frontend Task
 
 ## Introduction
 
