@@ -94,7 +94,7 @@ Your task is to implement a tool or an overlay on the piano roll that allows use
 ## Submission
 
 1. **Demonstration**: Fork this repository and work on your code there. When you're finished, update the readme with a screencast recording showing your version of the application.
-2. **Submit Your Work**: Send us the link to your repository, add a link to your linkeding profile in the message. Submission email address: frontend@pianoroll.io
+2. **Submit Your Work**: Send us the link to your repository, add a link to your linkedin profile in the message. Submission email address: frontend@pianoroll.io
 
 ### Evaluation Criteria
 
