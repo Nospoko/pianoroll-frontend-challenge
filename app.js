@@ -29,6 +29,7 @@ class PianoRollDisplay {
     cardDiv.appendChild(descriptionDiv);
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.classList.add('piano-roll-svg');
     svg.setAttribute('width', '80%');
     svg.setAttribute('height', '150');
 
@@ -45,8 +46,8 @@ class PianoRollDisplay {
     const pianoRollContainer = document.getElementById('pianoRollContainer');
     pianoRollContainer.innerHTML = '';
     for (let it = 0; it < 20; it++) {
-      const start = it * 100;
-      const end = start + 100;
+      const start = it * 60;
+      const end = start + 60;
       const partData = this.data.slice(start, end);
 
       const { cardDiv, svg } = this.preparePianoRollCard(it)

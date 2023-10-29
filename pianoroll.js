@@ -20,8 +20,8 @@ export default class PianoRoll {
     const backgroundEndColor = { r: 21, g: 65, b: 81 };
     this.backgroundColormap = generateGradientTable(backgroundStartColor, backgroundEndColor, 128);
 
-    const noteStartColor = { r: 132, g: 132, b: 123 };
-    const noteEndColor = { r: 148, g: 64, b: 56 };
+    const noteStartColor = { r: 66, g: 66, b: 61 };
+    const noteEndColor = { r: 28, g: 28, b: 26 };
     this.noteColormap = generateGradientTable(noteStartColor, noteEndColor, 128);
 
     this.svgElement.setAttribute("viewBox", "0 0 1 1");
