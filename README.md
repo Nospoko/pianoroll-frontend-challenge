@@ -41,6 +41,7 @@ We want to implement an interface following the design similar to YouTube. There
 |  Piano Roll  |   |  Piano Roll  |   |  Piano Roll  |
 |              |   |              |   |              |
 +--------------+   +--------------+   +--------------+
+                          ...
 ```
 
 #### Main View
