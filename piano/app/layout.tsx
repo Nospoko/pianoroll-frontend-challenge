@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import { Providers } from "./redux/provider";
 
 export const metadata: Metadata = {
   title: "PianoRoll coding challange",
@@ -14,9 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"bg-white"}>
+      <body className={"bg-white overflow-auto"}>
         <Navigation />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
