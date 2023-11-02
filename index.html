@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"
+      rel="stylesheet"
+    />
 
-	<link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.svg">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
 
-  <title>PianoRoll</title>
-</head>
-<body>
-  <nav class="navbar">
-    <div class="logo-container">
-      <img src="assets/white.svg" alt="Logo">
+    <title>PianoRoll</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="assets/white.svg" alt="Logo" />
+      </div>
+    </nav>
+
+    <h1>Welcome to PianoRoll frontend coding challenge!</h1>
+
+    <div id="buttonContainer">
+      <button id="loadCSV">Load Piano Rolls!</button>
     </div>
-  </nav>
 
-  <h1> Welcome to PianoRoll frontend coding challenge!</h1>
+    <div class="piano-roll-container" id="pianoRollContainer"></div>
 
-  <div id="buttonContainer">
-    <button id="loadCSV">Load Piano Rolls!</button>
-  </div>
+    <div id="pianoRollTemplate">
+      <div class="piano-roll-card">
+        <div class="piano-roll-svg-container">
+          <svg class="piano-roll-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <div class="description">
+          This is a piano roll number <span class="roll-id"></span>
+        </div>
+      </div>
+    </div>
 
-  <div id="pianoRollContainer"></div>
-
-  <script src="app.js" type="module"></script>
-</body>
+    <script src="app.js" type="module"></script>
+  </body>
 </html>
