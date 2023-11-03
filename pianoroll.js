@@ -69,8 +69,9 @@ export default class PianoRoll {
       const w = this.timeToX(note.end - note.start);
 
       note_rectangle.setAttribute('x', `${x}`);
+      //console.log("Here, x must be ordered ", + x);
       note_rectangle.setAttribute('width', `${w}`);
-
+      
       // Computers draw upside down
       const y = 1 - (note.pitch - pitch_min) / pitch_span;
 

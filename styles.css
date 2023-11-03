@@ -33,8 +33,9 @@ body {
 
 #pianoRollContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -71,16 +72,113 @@ button:hover {
 
 .piano-roll-svg {
   border: 2px solid #381815;
+  z-index: 100;
 }
 
 .piano-roll-card {
   border: 1px solid #ccc;
-  margin-bottom: 10px;
+  margin-bottom: 0.5%;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
   padding: 10px;
-  width: 50%;
+  width: 32%;
   box-sizing: border-box;
+  cursor: pointer;
 }
+/* 
+.piano-roll-card :hover {
+  cursor: pointer;
+  transform: scale(1.02);
+} */
 
 .description {
   margin-top: 10px;
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+#play_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#main_show {
+  width: 66%;
+  height: fit-content;
+}
+
+#list_show {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+@media screen and (max-width: 1100px) {
+  .piano-roll-card {
+    width: 49%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .piano-roll-card {
+    width: 99%;
+  }
+}
+
+cursor {
+  position: absolute; 
+  left: 594.5px; 
+  top: 0px; 
+  bottom: 0px; 
+  margin-top: 2px;
+  height: calc(100% - 8px);
+  width: 0px; 
+  border-right: 1px solid black; 
+  opacity: 1; 
+  pointer-events: none;
+  z-index: 10;
+}
+
+.delete {
+  color: rgb(0, 0, 0);
+  top: 3px;
+  right: 3px;
+  color: #fff;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  background: #444;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 1.1;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: all;
+  
+}
+
+.region {
+  position: absolute;
+  margin-top: 2px;
+  height: calc(100% - 8px); 
+  top: 0px; 
+  left: 0px; 
+  width: 0px; 
+  background-color: rgba(255, 215, 0, 0.4); 
+  color: gold;
+  pointer-events: none;
 }
