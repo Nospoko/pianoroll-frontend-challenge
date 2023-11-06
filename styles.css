@@ -25,23 +25,59 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* optional drop shadow */
 }
 
+.header {
+  background-color: #fff;
+  /* text-align: center; */
+  padding: 10px 0;
+  display: flex;
+  /* width: 50%; */
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #1C1C1A;
+  flex: 1;
+}
+
+#loadCSV {
+  padding: 15px 25px;
+
+  font-size: 18px;
+  color: #F0F0F0;
+  background-color: #944038;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#loadCSV:hover {
+  background-color: #381815;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  padding: 20px;
+}
+
 .logo-container img {
   height: 40px;
   width: auto;
   fill: white;
 }
 
-#pianoRollContainer {
+.piano-roll-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 10px;
-  justify-content: center;
-  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 h1 {
-  margin-bottom: 20px;
-  font-size: 42px;
+  font-size: 36px;
+  color: #333;
 }
 
 button {
@@ -73,27 +109,48 @@ button:hover {
 }
 
 .piano-roll-svg-container {
-  border: 2px solid #381815;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
+  padding: 20px;
+  text-align: center;
 }
 
 .piano-roll-svg {
-  border: 2px solid #381815;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .piano-roll-card {
-  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.piano-roll-card:hover {
+  transform: translateY(-5px);
+}
+
+#pianoRollList {
+  flex: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px;
+}
+
+.piano-roll-list-card {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   margin-bottom: 10px;
-  padding: 10px;
-  width: 50%;
-  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.piano-roll-list-card:hover {
+  transform: translateY(-5px);
 }
 
 .description {
-  margin-top: 10px;
+  padding: 20px;
+  font-size: 16px;
+  color: #555;
 }

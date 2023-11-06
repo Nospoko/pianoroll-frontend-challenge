@@ -58,7 +58,22 @@ class PianoRollDisplay {
     // Append the SVG to the card container
     cardDiv.appendChild(svg);
 
+    // Add click event to select the Piano Roll
+    cardDiv.addEventListener('click', () => {
+      if (this.selectedRoll) {
+        this.selectedRoll.classList.remove('selected');
+      }
+      cardDiv.classList.add('selected');
+      this.selectedRoll = cardDiv;
+      this.showSelectedRoll(cardDiv);
+    });
+
     return { cardDiv, svg }
+  }
+
+  showSelectedRoll(cardDiv, rollId) {
+    const description = cardDiv.querySelector('.description');
+    description.textContent = `Selected Piano Roll: ${rollId}`;
   }
 
   async generateSVGs() {
